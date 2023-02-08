@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import AllTheBooks from "./Component/AllTheBooks";
+import Row from "react-bootstrap/Row";
+import fantasy from "./Data/fantasy.json";
+import history from "./Data/history.json";
+import horror from "./Data/horror.json";
+import romance from "./Data/romance.json";
+import scifi from "./Data/scifi.json";
+import "./Component/Cards.css";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row>
+        <AllTheBooks category={fantasy} />
+        <AllTheBooks category={history} />
+        <AllTheBooks category={horror} />
+        <AllTheBooks category={romance} />
+        <AllTheBooks category={scifi} />
+      </Row>
     </div>
   );
 }
