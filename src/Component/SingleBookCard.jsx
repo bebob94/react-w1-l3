@@ -7,7 +7,7 @@ class SingleBookCard extends Component {
   };
   render() {
     return (
-      <Col>
+      <Col xs={3}>
         <Card
           onClick={() => this.setState({ selected: !this.state.selected })}
           className="m-3"
