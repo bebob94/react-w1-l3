@@ -1,18 +1,29 @@
+import { Component } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 
-function SingleBookCard(props) {
-  return (
-    <Col>
-      <Card className="m-3" key={props.asin} style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={props.img} />
-        <Card.Body>
-          <Card.Title>{props.title}</Card.Title>
-          <Card.Text>{props.category}</Card.Text>
-          <Button variant="primary">{props.price}</Button>
-        </Card.Body>
-      </Card>
-    </Col>
-  );
+class SingleBookCard extends Component {
+  state = {
+    selected: false,
+  };
+  render() {
+    return (
+      <Col>
+        <Card
+          onClick={() => this.setState({ selected: !this.state.selected })}
+          className="m-3"
+          key={this.props.asin}
+          style={{ border: this.state.selected ? "3px solid red" : "none" }}
+        >
+          <Card.Img variant="top" src={this.props.img} />
+          <Card.Body>
+            <Card.Title>{this.props.title}</Card.Title>
+            <Card.Text>{this.props.category}</Card.Text>
+            <Button variant="primary">{this.props.price}</Button>
+          </Card.Body>
+        </Card>
+      </Col>
+    );
+  }
 }
 
 export default SingleBookCard;
