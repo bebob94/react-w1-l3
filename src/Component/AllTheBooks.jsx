@@ -47,6 +47,7 @@ class AllTheBooks extends Component {
                   img={Book.img}
                   category={Book.category}
                   price={Book.price}
+                  asin={Book.asin}
                 />
               );
             })}
