@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { Button, Card, Col } from "react-bootstrap";
-import CommentArea from "./CommentArea";
 
 class SingleBookCard extends Component {
   state = {
@@ -10,7 +9,10 @@ class SingleBookCard extends Component {
     return (
       <Col xs={3}>
         <Card
-          onClick={() => this.setState({ selected: !this.state.selected })}
+          onClick={() => {
+            this.setState({ selected: !this.state.selected });
+            this.props.selectedAsin(this.props.asin);
+          }}
           className="m-3"
           key={this.props.asin}
           style={{
@@ -24,7 +26,6 @@ class SingleBookCard extends Component {
             <Button variant="primary">{this.props.price}</Button>
           </Card.Body>
         </Card>
-        {this.state.selected && <CommentArea id={this.props.asin} />}
       </Col>
     );
   }
