@@ -12,7 +12,7 @@ class CommentArea extends Component {
   };
 
   componentDidUpdate = async (prevProps) => {
-    if (prevProps.this.props.myAsin !== this.props.myAsin) {
+    if (prevProps.myAsin !== this.props.myAsin) {
       console.log("Props CAMBIATE");
 
       try {
