@@ -8,38 +8,39 @@ import fantasy from "./Data/fantasy.json";
 // import romance from "./Data/romance.json";
 // import scifi from "./Data/scifi.json";
 import "./Component/Cards.css";
-import { Component } from "react";
+import { useState } from "react";
 import CommentArea from "./Component/CommentArea";
 
-class App extends Component {
-  state = {
-    asin: null,
-  };
-  selectedAsin = (asinCard) => {
-    this.setState({ asin: asinCard });
+const App = () => {
+  // state = {
+  //   asin: null,
+  // };
+
+  const [asin, setAsin] = useState(null);
+
+  const selectedAsin = (asinCard) => {
+    setAsin(asinCard);
   };
 
-  render() {
-    return (
-      <div className="App">
-        <MyNav />
-        <Container className="mt-4">
-          <Row className="justify-content-center">
-            <Col xs={8}>
-              <AllTheBooks
-                category={fantasy}
-                myAsin={this.state.asin}
-                selectedAsin={this.selectedAsin}
-              />
-            </Col>
-            <Col xs={4}>
-              <CommentArea myAsin={this.state.asin} />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <MyNav />
+      <Container className="mt-4">
+        <Row className="justify-content-center">
+          <Col xs={8}>
+            <AllTheBooks
+              category={fantasy}
+              myAsin={asin}
+              selectedAsin={selectedAsin}
+            />
+          </Col>
+          <Col xs={4}>
+            <CommentArea myAsin={asin} />
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
 
 export default App;
