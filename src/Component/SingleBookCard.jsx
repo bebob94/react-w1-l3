@@ -2,21 +2,18 @@ import { Component } from "react";
 import { Button, Card, Col } from "react-bootstrap";
 
 class SingleBookCard extends Component {
-  state = {
-    selected: false,
-  };
   render() {
     return (
       <Col xs={3}>
         <Card
           onClick={() => {
-            this.setState({ selected: !this.state.selected });
             this.props.selectedAsin(this.props.asin);
           }}
           className="m-3"
           key={this.props.asin}
           style={{
-            border: this.state.selected ? "3px solid red" : "none",
+            border:
+              this.props.myAsin === this.props.asin ? "3px solid red" : "none",
           }}
         >
           <Card.Img variant="top" src={this.props.img} />

@@ -42,7 +42,7 @@ class AllTheBooks extends Component {
             .map((Book) => {
               return (
                 <SingleBookCard
-                  selected={this.props.selected}
+                  myAsin={this.props.myAsin}
                   selectedCard={this.props.selectedCard}
                   selectedAsin={this.props.selectedAsin}
                   key={Book.asin}
